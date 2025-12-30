@@ -48,7 +48,6 @@ def create_solid_card(card_id, title, value, subtext, theme_key):
         className="kpi-card-hover"  # Only for hover effect (defined in CSS)
     )
 
-
 # --- 3. LAYOUT ---
 layout = dbc.Container([
 
