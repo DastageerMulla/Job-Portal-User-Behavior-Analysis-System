@@ -124,3 +124,23 @@ Country Analytics (Jobs/Apps/Views): Three dedicated pages to dissect market per
 Retention Analytics: Strategic analysis of company loyalty, calculating retention rates based on performance metrics.
 
 Images:
+<<<<<<< HEAD
+=======
+
+![Screenshot_30-12-2025_125954_127.0.0.1.jpeg](../../Downloads/Screenshot_30-12-2025_125954_127.0.0.1.jpeg)
+![Screenshot_30-12-2025_125944_127.0.0.1.jpeg](../../Downloads/Screenshot_30-12-2025_125944_127.0.0.1.jpeg)
+![Screenshot_30-12-2025_125936_127.0.0.1.jpeg](../../Downloads/Screenshot_30-12-2025_125936_127.0.0.1.jpeg)
+![Screenshot_30-12-2025_125936_127.0.0.1 (1).jpeg](../../Downloads/Screenshot_30-12-2025_125936_127.0.0.1%20%281%29.jpeg)
+![Screenshot_30-12-2025_125923_127.0.0.1.jpeg](../../Downloads/Screenshot_30-12-2025_125923_127.0.0.1.jpeg)
+![Screenshot_30-12-2025_125912_127.0.0.1.jpeg](../../Downloads/Screenshot_30-12-2025_125912_127.0.0.1.jpeg)
+![Screenshot_30-12-2025_125856_127.0.0.1.jpeg](../../Downloads/Screenshot_30-12-2025_125856_127.0.0.1.jpeg)
+![Screenshot_30-12-2025_12594_127.0.0.1.jpeg](../../Downloads/Screenshot_30-12-2025_12594_127.0.0.1.jpeg)
+![Screenshot_30-12-2025_125954_127.0.0.1.jpeg](../../Downloads/Screenshot_30-12-2025_125954_127.0.0.1.jpeg)
+![Screenshot_30-12-2025_125944_127.0.0.1.jpeg](../../Downloads/Screenshot_30-12-2025_125944_127.0.0.1.jpeg)
+![Screenshot_30-12-2025_125936_127.0.0.1.jpeg](../../Downloads/Screenshot_30-12-2025_125936_127.0.0.1.jpeg)
+![Screenshot_30-12-2025_125936_127.0.0.1 (1).jpeg](../../Downloads/Screenshot_30-12-2025_125936_127.0.0.1%20%281%29.jpeg)
+![Screenshot_30-12-2025_125923_127.0.0.1.jpeg](../../Downloads/Screenshot_30-12-2025_125923_127.0.0.1.jpeg)
+![Screenshot_30-12-2025_125912_127.0.0.1.jpeg](../../Downloads/Screenshot_30-12-2025_125912_127.0.0.1.jpeg)
+![Screenshot_30-12-2025_125856_127.0.0.1.jpeg](../../Downloads/Screenshot_30-12-2025_125856_127.0.0.1.jpeg)
+![Screenshot_30-12-2025_12594_127.0.0.1.jpeg](../../Downloads/Screenshot_30-12-2025_12594_127.0.0.1.jpeg)
+>>>>>>> 86886b249472320805045918e0f44cfd0c48e064
