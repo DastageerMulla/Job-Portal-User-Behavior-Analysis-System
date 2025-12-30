@@ -31,7 +31,6 @@ def create_detail_card(title, value, subtext, color, val_id=None):
         style={'borderRadius': '12px', 'border': 'none'}
     )
 
-
 # --- 2. LAYOUT DEFINITION ---
 
 layout = dbc.Container([

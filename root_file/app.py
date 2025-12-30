@@ -22,7 +22,7 @@ from job_views_dashboard.application_country import layout as page6_layout, regi
 from job_views_dashboard.views_country import layout as page7_layout, register_callbacks as register_page7_callbacks
 
 # --- NEW PAGE IMPORT (Retention Analytics) ---
-from job_views_dashboard.retention_analytics import layout as page8_layout, register_callbacks as register_page8_callbacks
+from job_views_dashboard.country_category_analytics import layout as page8_layout, register_callbacks as register_page8_callbacks
 
 # 3. APP SETUP
 app = dash.Dash(__name__, external_stylesheets=[dbc.themes.BOOTSTRAP, dbc.icons.FONT_AWESOME], suppress_callback_exceptions=True)
@@ -55,7 +55,7 @@ sidebar = html.Div([
         dbc.NavLink([html.I(className="fas fa-flag me-2"), "App Country Analytics"], href="/application-country", active="exact", className="text-white-50 mb-2"),
         dbc.NavLink([html.I(className="fas fa-globe me-2"), "Views Country Analytics"], href="/views-country", active="exact", className="text-white-50 mb-2"),
         # --- NEW LINK ---
-        dbc.NavLink([html.I(className="fas fa-sync-alt me-2"), "Retention Analytics"], href="/retention-analytics", active="exact", className="text-white-50 mb-2"),
+        dbc.NavLink([html.I(className="fas fa-sync-alt me-2"), "Category Analytics"], href="/category-analytics", active="exact", className="text-white-50 mb-2"),
     ], vertical=True, pills=True),
 ], style=SIDEBAR_STYLE)
 
@@ -87,7 +87,7 @@ def display_page(pathname):
     elif pathname == '/country-jobs-posted': return page5_layout
     elif pathname == '/application-country': return page6_layout
     elif pathname == '/views-country': return page7_layout
-    elif pathname == '/retention-analytics': return page8_layout # New Route
+    elif pathname == '/category-analytics': return page8_layout # New Route
     else: return page1_layout
 
 if __name__ == '__main__':
