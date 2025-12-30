@@ -125,4 +125,20 @@ Retention Analytics: Strategic analysis of company loyalty, calculating retentio
 
 Images:
 
+![Image](https://github.com/user-attachments/assets/175a3775-8acd-42e7-9fb6-39c422defbc9)
+
+![Image](https://github.com/user-attachments/assets/7e2dbd76-0357-4cf6-a877-e760201f8c5b)
+
+![Image](https://github.com/user-attachments/assets/c3f7aaa9-0e62-43cd-aa98-35efb2d1296b)
+
+![Image](https://github.com/user-attachments/assets/9025f821-0340-4774-884a-c1aa9929bba3)
+
+![Image](https://github.com/user-attachments/assets/91be7211-8a4f-48e6-a4bd-33ce5be0c273)
+
+![Image](https://github.com/user-attachments/assets/1722f679-a8aa-40bc-9dd1-ded7b4f09bf2)
+
+![Image](https://github.com/user-attachments/assets/62bc62e6-2111-4ab7-8667-31142194b431)
+
+![Image](https://github.com/user-attachments/assets/94bd3c8c-47bb-459a-9318-12f48480a122)
+
 
