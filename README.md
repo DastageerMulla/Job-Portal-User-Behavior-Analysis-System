@@ -124,7 +124,5 @@ Country Analytics (Jobs/Apps/Views): Three dedicated pages to dissect market per
 Retention Analytics: Strategic analysis of company loyalty, calculating retention rates based on performance metrics.
 
 Images:
-<<<<<<< HEAD
-=======
 
 
