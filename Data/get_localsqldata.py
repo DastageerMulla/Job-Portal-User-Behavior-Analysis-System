@@ -65,7 +65,8 @@ def load_data(local_config=LOCAL_DB_CONFIG):
             'adRunTimeStart': 'Run_Start_Date',
             'adRunTimeEnd': 'Run_End_Date',
             'detailViewLink': 'Job_URL',
-            'Country':'Country'
+            'Country':'Country',
+            'traffic_source':'Traffic_Source',
         }
 
         # Apply the renaming
@@ -91,7 +92,7 @@ if __name__ == "__main__":
         print(df_result.info())
 
         print("\n--- Sample Data (First 5 Rows) ---")
-        print(df_result.head())
+        print(df_result['totalViewsDetailed'].head())
 
         # Verify we have data from multiple months
         if 'Data_Source_Month' in df_result.columns:

@@ -12,20 +12,31 @@ sys.path.append(parent_dir)
 # 2. IMPORT DATA & PAGES
 from Data.get_localsqldata import load_data
 
-# Import existing pages
-from job_views_dashboard.overview_analytics import layout as page1_layout, register_callbacks as register_page1_callbacks
-from job_views_dashboard.jobs_posted_analytics import layout as page2_layout, register_callbacks as register_page2_callbacks
-from job_views_dashboard.application_analytics import layout as page3_layout, register_callbacks as register_page3_callbacks
+# --- Import Existing Pages ---
+from job_views_dashboard.overview_analytics import layout as page1_layout, \
+    register_callbacks as register_page1_callbacks
+from job_views_dashboard.jobs_posted_analytics import layout as page2_layout, \
+    register_callbacks as register_page2_callbacks
+from job_views_dashboard.application_analytics import layout as page3_layout, \
+    register_callbacks as register_page3_callbacks
 from job_views_dashboard.views_analytics import layout as page4_layout, register_callbacks as register_page4_callbacks
-from job_views_dashboard.country_jobs_posted import layout as page5_layout, register_callbacks as register_page5_callbacks
-from job_views_dashboard.application_country import layout as page6_layout, register_callbacks as register_page6_callbacks
+from job_views_dashboard.country_jobs_posted import layout as page5_layout, \
+    register_callbacks as register_page5_callbacks
+from job_views_dashboard.application_country import layout as page6_layout, \
+    register_callbacks as register_page6_callbacks
 from job_views_dashboard.views_country import layout as page7_layout, register_callbacks as register_page7_callbacks
 
-# --- NEW PAGE IMPORT (Retention Analytics) ---
-from job_views_dashboard.country_category_analytics import layout as page8_layout, register_callbacks as register_page8_callbacks
+# --- Import New Pages ---
+# from job_views_dashboard.retention_analytics import layout as page8_layout, \
+#     register_callbacks as register_page8_callbacks
+
+from job_views_dashboard.company_analytics import layout as page9_layout, register_callbacks as register_page9_callbacks
+from job_views_dashboard.country_category_analytics import layout as page10_layout, \
+    register_callbacks as register_page10_callbacks
 
 # 3. APP SETUP
-app = dash.Dash(__name__, external_stylesheets=[dbc.themes.BOOTSTRAP, dbc.icons.FONT_AWESOME], suppress_callback_exceptions=True)
+app = dash.Dash(__name__, external_stylesheets=[dbc.themes.BOOTSTRAP, dbc.icons.FONT_AWESOME],
+                suppress_callback_exceptions=True)
 server = app.server
 app.title = "Job Portal Analytics"
 
@@ -44,18 +55,38 @@ CONTENT_STYLE = {
 }
 
 sidebar = html.Div([
-    html.Div([html.I(className="fas fa-briefcase fa-lg me-2", style={"color": "#f4d35e"}), html.Span("Job Portal Admin", className="h5 fw-bold", style={"color": "white"})], className="mb-4 d-flex align-items-center"),
+    html.Div([html.I(className="fas fa-briefcase fa-lg me-2", style={"color": "#f4d35e"}),
+              html.Span("Job Portal Admin", className="h5 fw-bold", style={"color": "white"})],
+             className="mb-4 d-flex align-items-center"),
     html.Hr(style={"borderColor": "rgba(255,255,255,0.2)"}),
     dbc.Nav([
-        dbc.NavLink([html.I(className="fas fa-chart-line me-2"), "Job Overview"], href="/dashboard", active="exact", className="text-white-50 mb-2"),
-        dbc.NavLink([html.I(className="fas fa-calendar-alt me-2"), "Jobs Posted"], href="/jobs-analytics", active="exact", className="text-white-50 mb-2"),
-        dbc.NavLink([html.I(className="fas fa-file-signature me-2"), "App Analytics"], href="/application-analytics", active="exact", className="text-white-50 mb-2"),
-        dbc.NavLink([html.I(className="fas fa-eye me-2"), "Views Analytics"], href="/views-analytics", active="exact", className="text-white-50 mb-2"),
-        dbc.NavLink([html.I(className="fas fa-globe-americas me-2"), "Country Jobs Posted"], href="/country-jobs-posted", active="exact", className="text-white-50 mb-2"),
-        dbc.NavLink([html.I(className="fas fa-flag me-2"), "App Country Analytics"], href="/application-country", active="exact", className="text-white-50 mb-2"),
-        dbc.NavLink([html.I(className="fas fa-globe me-2"), "Views Country Analytics"], href="/views-country", active="exact", className="text-white-50 mb-2"),
-        # --- NEW LINK ---
-        dbc.NavLink([html.I(className="fas fa-sync-alt me-2"), "Category Analytics"], href="/category-analytics", active="exact", className="text-white-50 mb-2"),
+        dbc.NavLink([html.I(className="fas fa-chart-line me-2"), "Job Overview"], href="/dashboard", active="exact",
+                    className="text-white-50 mb-2"),
+        dbc.NavLink([html.I(className="fas fa-calendar-alt me-2"), "Jobs Posted"], href="/jobs-analytics",
+                    active="exact", className="text-white-50 mb-2"),
+        dbc.NavLink([html.I(className="fas fa-file-signature me-2"), "App Analytics"], href="/application-analytics",
+                    active="exact", className="text-white-50 mb-2"),
+        dbc.NavLink([html.I(className="fas fa-eye me-2"), "Views Analytics"], href="/views-analytics", active="exact",
+                    className="text-white-50 mb-2"),
+
+        # Geographic Section
+        html.Div("Geographic Insights", className="small text-white-50 mt-3 mb-2 fw-bold text-uppercase"),
+        dbc.NavLink([html.I(className="fas fa-globe-americas me-2"), "Country Jobs Posted"],
+                    href="/country-jobs-posted", active="exact", className="text-white-50 mb-2"),
+        dbc.NavLink([html.I(className="fas fa-flag me-2"), "App Country Analytics"], href="/application-country",
+                    active="exact", className="text-white-50 mb-2"),
+        dbc.NavLink([html.I(className="fas fa-globe me-2"), "Views Country Analytics"], href="/views-country",
+                    active="exact", className="text-white-50 mb-2"),
+
+        # Advanced Section
+        html.Div("Advanced Metrics", className="small text-white-50 mt-3 mb-2 fw-bold text-uppercase"),
+        # dbc.NavLink([html.I(className="fas fa-sync-alt me-2"), "Retention Analytics"], href="/retention-analytics",
+        #             active="exact", className="text-white-50 mb-2"),
+        dbc.NavLink([html.I(className="fas fa-building me-2"), "Company Analytics"], href="/company-analytics",
+                    active="exact", className="text-white-50 mb-2"),
+        dbc.NavLink([html.I(className="fas fa-layer-group me-2"), "Category Analytics"], href="/category-analytics",
+                    active="exact", className="text-white-50 mb-2"),
+
     ], vertical=True, pills=True),
 ], style=SIDEBAR_STYLE)
 
@@ -75,20 +106,37 @@ register_page4_callbacks(app)
 register_page5_callbacks(app)
 register_page6_callbacks(app)
 register_page7_callbacks(app)
-register_page8_callbacks(app) # Register Retention Callbacks
+# register_page8_callbacks(app)  # Retention
+register_page9_callbacks(app)  # Company
+register_page10_callbacks(app)  # Category
+
 
 # 7. ROUTING
 @app.callback(Output('page-content', 'children'), Input('url', 'pathname'))
 def display_page(pathname):
-    if pathname == '/' or pathname == '/dashboard': return page1_layout
-    elif pathname == '/jobs-analytics': return page2_layout
-    elif pathname == '/application-analytics': return page3_layout
-    elif pathname == '/views-analytics': return page4_layout
-    elif pathname == '/country-jobs-posted': return page5_layout
-    elif pathname == '/application-country': return page6_layout
-    elif pathname == '/views-country': return page7_layout
-    elif pathname == '/category-analytics': return page8_layout # New Route
-    else: return page1_layout
+    if pathname == '/' or pathname == '/dashboard':
+        return page1_layout
+    elif pathname == '/jobs-analytics':
+        return page2_layout
+    elif pathname == '/application-analytics':
+        return page3_layout
+    elif pathname == '/views-analytics':
+        return page4_layout
+    elif pathname == '/country-jobs-posted':
+        return page5_layout
+    elif pathname == '/application-country':
+        return page6_layout
+    elif pathname == '/views-country':
+        return page7_layout
+    # elif pathname == '/retention-analytics':
+    #     return page8_layout
+    elif pathname == '/company-analytics':
+        return page9_layout
+    elif pathname == '/category-analytics':
+        return page10_layout
+    else:
+        return page1_layout
+
 
 if __name__ == '__main__':
     app.run(debug=True, port=8050)
