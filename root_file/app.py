@@ -34,6 +34,11 @@ from job_views_dashboard.company_analytics import layout as page9_layout, regist
 from job_views_dashboard.country_category_analytics import layout as page10_layout, \
     register_callbacks as register_page10_callbacks
 
+# --- NEW PAGE IMPORT (AI Forecasts) ---
+from job_views_dashboard.ai_job_supply import layout as page11_layout, register_callbacks as register_page11_callbacks
+from job_views_dashboard.ai_app_demand import layout as page12_layout, register_callbacks as register_page12_callbacks
+from job_views_dashboard.ai_job_performance import layout as page13_layout, register_callbacks as register_page13_callbacks
+
 # 3. APP SETUP
 app = dash.Dash(__name__, external_stylesheets=[dbc.themes.BOOTSTRAP, dbc.icons.FONT_AWESOME],
                 suppress_callback_exceptions=True)
@@ -45,13 +50,26 @@ print("🚀 Launching App... Fetching Data from XAMPP...")
 df = load_data()
 initial_data = df.to_dict('records') if df is not None else []
 
-# 4. SIDEBAR
+# 4. SIDEBAR (Updated with Scroll)
 SIDEBAR_STYLE = {
-    "position": "fixed", "top": 0, "left": 0, "bottom": 0, "width": "16rem",
-    "padding": "2rem 1rem", "backgroundColor": "#2b2d42", "color": "#f8f9fa", "boxShadow": "2px 0 5px rgba(0,0,0,0.1)"
+    "position": "fixed",
+    "top": 0,
+    "left": 0,
+    "bottom": 0,
+    "width": "16rem",
+    "padding": "2rem 1rem",
+    "backgroundColor": "#2b2d42",
+    "color": "#f8f9fa",
+    "boxShadow": "2px 0 5px rgba(0,0,0,0.1)",
+    "overflowY": "auto",  # <--- Enables Vertical Scrollbar
+    "zIndex": 1000        # Ensures it stays on top
 }
+
 CONTENT_STYLE = {
-    "marginLeft": "16rem", "padding": "2rem 2rem", "backgroundColor": "#eef2f5", "minHeight": "100vh"
+    "marginLeft": "16rem",
+    "padding": "2rem 2rem",
+    "backgroundColor": "#eef2f5",
+    "minHeight": "100vh"
 }
 
 sidebar = html.Div([
@@ -87,6 +105,12 @@ sidebar = html.Div([
         dbc.NavLink([html.I(className="fas fa-layer-group me-2"), "Category Analytics"], href="/category-analytics",
                     active="exact", className="text-white-50 mb-2"),
 
+        # AI Section (New Group)
+        html.Div("AI Predictions", className="small text-white-50 mt-3 mb-2 fw-bold text-uppercase"),
+        dbc.NavLink([html.I(className="fas fa-robot me-2"), "Forecast: Job Supply"], href="/ai-job-supply", active="exact", className="text-white-50 mb-2"),
+        dbc.NavLink([html.I(className="fas fa-users me-2"), "Forecast: App Demand"], href="/ai-app-demand", active="exact", className="text-white-50 mb-2"),
+        dbc.NavLink([html.I(className="fas fa-calculator me-2"), "Job Simulator"], href="/ai-job-performance", active="exact", className="text-white-50 mb-2"),
+
     ], vertical=True, pills=True),
 ], style=SIDEBAR_STYLE)
 
@@ -109,7 +133,9 @@ register_page7_callbacks(app)
 # register_page8_callbacks(app)  # Retention
 register_page9_callbacks(app)  # Company
 register_page10_callbacks(app)  # Category
-
+register_page11_callbacks(app) # Job Supply Forecast
+register_page12_callbacks(app) # App Demand Forecast
+register_page13_callbacks(app)
 
 # 7. ROUTING
 @app.callback(Output('page-content', 'children'), Input('url', 'pathname'))
@@ -134,6 +160,12 @@ def display_page(pathname):
         return page9_layout
     elif pathname == '/category-analytics':
         return page10_layout
+    elif pathname == '/ai-job-supply':
+        return page11_layout
+    elif pathname == '/ai-app-demand':
+        return page12_layout
+    elif pathname == '/ai-job-performance':
+        return page13_layout
     else:
         return page1_layout
 
